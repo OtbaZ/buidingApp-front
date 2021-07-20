@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Dispositif} from './dispositif';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DispositifService {
 
-  public host:string="http://localhost:8080/dispositifs"
+  baseUrl=environment.baseUrl
+
+  public host:string=this.baseUrl+"dispositifs"
   constructor(private http:HttpClient) {
 
   }

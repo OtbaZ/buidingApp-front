@@ -24,7 +24,7 @@ export class AssainissementsComponent implements OnInit {
   }
 
   private getAssainissements(){
-    this.myService.getRessource("/assainissements").subscribe(data =>{
+    this.myService.getRessource("assainissements").subscribe(data =>{
       this.assainissements=data;
     }),error=>{
       console.log(error)

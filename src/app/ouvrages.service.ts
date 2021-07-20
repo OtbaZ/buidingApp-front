@@ -1,13 +1,17 @@
 import {Injectable, OnInit} from '@angular/core';
 import {Ouvrage} from './ouvrage'
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OuvragesService implements  OnInit{
 
-  public host:string="http://localhost:8080/ouvrages"
+
+  baseUrl=environment.baseUrl
+
+  public host:string=this.baseUrl+"ouvrages"
   constructor(private http:HttpClient) {
 
   }

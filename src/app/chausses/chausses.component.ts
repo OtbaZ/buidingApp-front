@@ -21,7 +21,7 @@ export class ChaussesComponent implements OnInit {
   }
 
   private getChausses(){
-    this.myService.getRessource("/chausses").subscribe(data =>{
+    this.myService.getRessource("chausses").subscribe(data =>{
       this.chausses=data;
     }),error=>{
       console.log(error)

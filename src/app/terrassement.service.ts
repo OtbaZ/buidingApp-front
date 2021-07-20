@@ -1,13 +1,17 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Terrassement} from './terrassement';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TerrassementService {
 
-  public host:string="http://localhost:8080/terrassements"
+  baseUrl=environment.baseUrl
+
+  public host:string=this.baseUrl+"terrassements"
+
   constructor(private http:HttpClient) {
 
   }

@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Assainissement} from './assainissement';
+import {environment} from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssainissementService {
 
-  public host:string="http://localhost:8080/assainissements"
+  baseUrl=environment.baseUrl
+  public host:string=this.baseUrl+"assainissements"
   constructor(private http:HttpClient) {
 
   }

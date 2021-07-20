@@ -39,7 +39,7 @@ export class OuvragesComponent implements OnInit {
   }
 
   private getOuvrages() {
-    this.myService.getRessource("/ouvrages").subscribe(data => {
+    this.myService.getRessource("ouvrages").subscribe(data => {
       this.ouvrages = data;
     }, error => {
       console.log(error);

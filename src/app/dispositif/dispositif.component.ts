@@ -21,7 +21,7 @@ export class DispositifComponent implements OnInit {
   }
 
   private getDispositifs(){
-    this.myService.getRessource("/dispositifs").subscribe(data =>{
+    this.myService.getRessource("dispositifs").subscribe(data =>{
       this.dispositifs=data;
     },error => {
       console.log(error);

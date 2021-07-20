@@ -21,7 +21,7 @@ export class EquipementsComponent implements OnInit {
   }
 
   private getDispositifs(){
-    this.myService.getRessource("/equipements").subscribe(data =>{
+    this.myService.getRessource("equipements").subscribe(data =>{
       this.equipements=data;
     },error => {
       console.log(error);

@@ -36,7 +36,7 @@ export class TerrassementsComponent implements OnInit {
   }
 
   private getTerrassements(){
-    this.myService.getRessource("/terrassements").subscribe(data =>{
+    this.myService.getRessource("terrassements").subscribe(data =>{
       this.terrassements=data;
     },error => {
       console.log(error);
