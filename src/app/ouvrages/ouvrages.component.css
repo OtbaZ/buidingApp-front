@@ -1,0 +1,14 @@
+.table-title .add-new {
+  float: right;
+
+}
+.table-title .add-new i {
+  margin-right: 4px;
+}
+
+table.table td button.edit {
+  color: #000000;
+}
+table.table td button.delete {
+  color: #E34724;
+}

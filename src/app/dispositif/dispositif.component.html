@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Table with Add and Delete Row Feature</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container" *ngIf="dispositifs" id="print">
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-8"><h2> <b>Les dispositifs</b></h2></div>
+        <div class="col-sm-4" data-html2canvas-ignore="true">
+          <button type="button"  routerLink="/dispositifsforms" class="btn btn-info add-new" ><i class="fa fa-plus"></i> Ajouter</button>
+          <button type="button" class="btn btn-danger add-new" style="margin-right: 5px;" (click)="onExportClick()">Exporter en PDF</button>
+
+        </div>
+      </div>
+    </div>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th>Nom</th>
+        <th>Auteur</th>
+        <th>Commentaire</th>
+        <th>Date</th>
+        <th>Traité</th>
+        <th data-html2canvas-ignore="true">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let c of dispositifs._embedded.dispositifs">
+        <td>{{c.name}}</td>
+        <td>{{c.author}}</td>
+        <td>{{c.comment}}</td>
+        <td>{{c.date}}</td>
+        <td *ngIf="c.treated">Oui</td>
+        <td *ngIf="!c.treated">Non</td>
+        <td class="text-center align-middle" data-html2canvas-ignore="true">
+          <button style="margin-right: 5px;" class="edit" title="Edit" data-toggle="tooltip" (click)= "onUpdate(c)"><i class="material-icons">&#xE254;</i></button>
+          <button style="margin-left: 5px" class="delete" title="Delete" data-toggle="tooltip" (click)= "onRemove(c.id)"><i class="material-icons">&#xE872;</i></button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

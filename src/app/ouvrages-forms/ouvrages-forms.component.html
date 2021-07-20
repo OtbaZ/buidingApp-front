@@ -1,0 +1,36 @@
+<div  style="margin-bottom: 10px; margin-left: 35px"><h2> <b>Ajout d'un ouvrage</b></h2></div>
+
+<div style="margin-top: 10px">
+<form style="margin: 30px;" >
+  <div class="form-group">
+    <label for="Name">Nom</label>
+    <input required ngModel name="Name" #name="ngModel" (change)="getName(name)" id="Name" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="name.touched && !name.valid">Le nom est requis</div>
+  </div>
+
+  <div class="form-group">
+    <label for="Author">Auteur</label>
+    <input required ngModel name="Author" #author="ngModel" (change)="getAuthor(author)" id="Author" type="text" class="form-control">
+    <div class="alert alert-danger" *ngIf="author.touched && !author.valid">L'auteur est requis</div>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Traité</label>
+    <select required name="selectedValue" [(ngModel)]="selectedLevel" (change)="selected()" class="form-control" id="exampleFormControlSelect1">
+      <option *ngFor="let item of data" [ngValue]="item">{{item.name}}</option>
+    </select>
+  </div>
+
+
+
+  <div class="form-group">
+    <label for="comment">Comment</label>
+    <textarea  ngModel name="comment"  #comment="ngModel"  id="comment" cols="30" rows="5" (change)="getComment(comment)" class="form-control"></textarea>
+  </div>
+
+
+
+  <button class="btn btn-primary" (click)="onSave()">Ajouter</button>
+  <p *ngIf="notCompleted" style="color: #f50016;: red">Veuillez remplir tous les champs obligatoires !</p>
+</form>
+</div>
