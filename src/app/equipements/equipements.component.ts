@@ -43,7 +43,7 @@ export class EquipementsComponent implements OnInit {
   }
 
   private getEquipement() {
-    this.myService.getRessource("/equipements").subscribe(data => {
+    this.myService.getRessource("equipements").subscribe(data => {
       this.equipements = data;
     }, error => {
       console.log(error);
